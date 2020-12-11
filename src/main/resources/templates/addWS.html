@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Usefullthings</title>
+
+</head>
+<body>
+<h3>Add workstation</h3>
+<form th:action="@{/workstations/addWS}" th:object="${workStation}" method="post">
+    WS Name
+    <input type="text" th:field="*{name}"/>
+    <span th:text="${message}">message</span>
+    <br/>
+    <input type="submit" value="Create"/>
+
+
+</form>
+
+
+</body>
+</html>
