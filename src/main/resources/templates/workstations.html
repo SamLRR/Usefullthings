@@ -9,6 +9,12 @@
 <a th:href="@{/}">Hello page</a>
 <h3>WorkStation List</h3>
 <div>
+    <form th:action="@{/logout}" method="post">
+        <input th:type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input th:type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
     <table border="1">
         <tr>
             <th>id</th>
