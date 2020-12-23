@@ -1,8 +1,10 @@
 package com.infotrans.osk.usefullthings.controller;
 
+import com.infotrans.osk.usefullthings.domain.User;
 import com.infotrans.osk.usefullthings.domain.WorkStation;
 import com.infotrans.osk.usefullthings.repo.WorkStationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -37,11 +39,13 @@ public class WSController {
 
 
     @PostMapping("addWS")
-    public String saveWS(@ModelAttribute("workStation") WorkStation workStation, Model model) {
+    public String saveWS(@AuthenticationPrincipal User user,
+                         @ModelAttribute("workStation") WorkStation workStation, Model model) {
         if(workStation.getName()==""){
             model.addAttribute("message", "Field doesn't be empty");
             return "addWS";
         }
+        workStation.setAuthor(user);
         workStationRepo.save(workStation);
         return "redirect:/workstations";
     }
