@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Usefullthings</title>
+
+</head>
+<body>
+<h3>Edit user</h3>
+<form th:action="@{/user/{id}(id=${id})}" th:object="${user}" method="post">
+
+    <label for="name">User name</label>
+    <input type="text" th:field="*{username}" id="name"/>
+    <div>
+        <li th:each="role : ${rolesTL}">
+
+                <input type="checkbox" th:name="${role}" th:checked="${#arrays.contains(user.roles, role)}"/>
+                <label th:text="${role}"></label>
+
+
+        </li>
+    </div>
+    <br/>
+    <input type="submit" value="Update"/>
+
+
+</form>
+
+
+</body>
+</html>

@@ -10,7 +10,7 @@
 <h3>WorkStation List</h3>
 <div>
     <form th:action="@{/logout}" method="post">
-        <input th:type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input th:type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <input th:type="submit" value="Sign Out"/>
     </form>
 </div>
@@ -20,6 +20,8 @@
             <th>id</th>
             <th>name</th>
             <th>author</th>
+            <th></th>
+            <th></th>
         </tr>
         <tr th:each="ws:${workstations}">
             <td th:utext="${ws.getId()}"></td>
@@ -32,6 +34,8 @@
     </table>
     <br/>
     <a th:href="@{/workstations/addWS}">Add workstation</a>
+    <br>
+    <a th:href="@{/user}">Users list</a>
 </div>
 
 

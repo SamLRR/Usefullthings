@@ -58,7 +58,9 @@ public class WSController {
     }
 
     @PostMapping("edit/{id}")
-    public String update(@Validated WorkStation workStation) {
+    public String update(@AuthenticationPrincipal User user,
+            @Validated WorkStation workStation) {
+        workStation.setAuthor(user);
         workStationRepo.save(workStation);
         return "redirect:/workstations";
     }
