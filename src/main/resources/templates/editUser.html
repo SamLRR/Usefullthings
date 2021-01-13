@@ -9,6 +9,9 @@
 <h3>Edit user</h3>
 <form th:action="@{/user/{id}(id=${id})}" th:object="${user}" method="post">
 
+    <label for="active">User active</label>
+    <input id="active" type="checkbox"  th:checked="*{active} ? 'true':'false'" />
+    <br/>
     <label for="name">User name</label>
     <input type="text" th:field="*{username}" id="name"/>
     <div>
