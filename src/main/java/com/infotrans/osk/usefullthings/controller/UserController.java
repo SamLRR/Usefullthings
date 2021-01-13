@@ -43,6 +43,7 @@ public class UserController {
             @RequestParam Map<String, String> form,
             @PathVariable("userId") User user) {
         user.setUsername(username);
+        user.setActive(false);
 
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
@@ -53,6 +54,9 @@ public class UserController {
         for (String key : form.keySet()) {
             if(roles.contains(key)){
                 user.getRoles().add(Role.valueOf(key));
+            }
+            if(key.equals("active")){
+                user.setActive(true);
             }
         }
 
