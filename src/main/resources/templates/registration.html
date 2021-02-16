@@ -9,6 +9,7 @@ Add new user
 <form th:action="@{/registration}" method="post">
     <div><label> User Name : <input th:type="text" name="username"/> </label></div>
     <div><label> Password: <input th:type="password" name="password"/> </label></div>
+    <div><label> Email: <input th:type="email" name="email" placeholder="some@some.com"/> </label></div>
     <input th:type="hidden" name="_csrf" value="{{_csrf.token}}" />
     <div><input th:type="submit" value="Sign In"/></div>
 </form>

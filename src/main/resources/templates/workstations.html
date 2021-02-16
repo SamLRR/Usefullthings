@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Usefullthings</title>
-
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 <a th:href="@{/}">Hello page</a>
@@ -20,6 +20,7 @@
             <th>id</th>
             <th>name</th>
             <th>author</th>
+            <th>image</th>
             <th></th>
             <th></th>
         </tr>
@@ -27,6 +28,7 @@
             <td th:utext="${ws.getId()}"></td>
             <td th:utext="${ws.getName()}"></td>
             <td th:utext="${ws.authorName}"></td>
+            <td><img th:src="@{/upload/{filename}(filename=${ws.filename})}" alt="" border=3 height=50 width=150</img></td>
             <td><a th:href="@{/workstations/edit/{id}(id=${ws.getId()})}"/>Edit</td>
             <td><a th:href="@{/workstations/remove/{id}(id=${ws.getId()})}"/>Remove</td>
         </tr>

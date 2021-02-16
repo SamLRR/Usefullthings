@@ -7,9 +7,10 @@
 </head>
 <body>
 <h3>Add workstation</h3>
-<form th:action="@{/workstations/addWS}" th:object="${workStation}" method="post">
+<form th:action="@{/workstations/addWS}" th:object="${workStation}" method="post" enctype="multipart/form-data">
     WS Name
     <input type="text" th:field="*{name}"/>
+    <input type="file" th:name="file">
     <span th:text="${message}">message</span>
     <br/>
     <input type="submit" value="Create"/>

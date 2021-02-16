@@ -5,6 +5,7 @@
 </head>
 <body>
 Login page
+<span th:text="${message}">message</span>
 <form th:action="@{/login}" method="post">
     <div><label> User Name : <input th:type="text" name="username"/> </label></div>
     <div><label> Password: <input th:type="password" name="password"/> </label></div>

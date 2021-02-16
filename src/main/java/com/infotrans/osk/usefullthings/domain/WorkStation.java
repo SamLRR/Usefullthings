@@ -14,6 +14,8 @@ public class WorkStation {
 
     private String name;
 
+    private String filename;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
